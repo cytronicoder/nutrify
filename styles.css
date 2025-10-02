@@ -288,7 +288,7 @@ body {
   margin: 0 auto;
   padding: var(--spacing-4xl) var(--spacing-lg);
   display: grid;
-  grid-template-columns: 1.4fr 0.6fr;
+  grid-template-columns: 1.5fr 0.5fr;
   gap: var(--spacing-5xl);
   align-items: center;
   position: relative;
@@ -466,16 +466,71 @@ body {
   position: relative;
 }
 
+.phone-3d-container {
+  perspective: 1200px;
+  perspective-origin: center center;
+  transform-style: preserve-3d;
+  padding: var(--spacing-4xl);
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .phone-3d-container {
+    perspective: none;
+  }
+  
+  .phone-mockup {
+    transform: rotate(-8deg) !important;
+    transition: transform var(--transition-slow);
+  }
+  
+  .phone-mockup:hover {
+    transform: rotate(-5deg) scale(1.02) !important;
+  }
+  
+  @keyframes phoneEntrance {
+    0% {
+      transform: rotate(-8deg) scale(0.9);
+      opacity: 0;
+    }
+    100% {
+      transform: rotate(-8deg) scale(1);
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes phoneEntrance {
+  0% {
+    transform: rotateX(45deg) rotateY(-45deg) rotateZ(-20deg) translateZ(0px) scale(0.8);
+    opacity: 0;
+  }
+  60% {
+    transform: rotateX(10deg) rotateY(-20deg) rotateZ(-5deg) translateZ(70px) scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: rotateX(15deg) rotateY(-25deg) rotateZ(-8deg) translateZ(50px) scale(1);
+    opacity: 1;
+  }
+}
+
 .phone-mockup {
   width: 320px;
   height: 640px;
   background: linear-gradient(145deg, var(--charcoal), var(--black));
   border-radius: 40px;
   padding: 24px;
-  box-shadow: var(--shadow-2xl);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 8px 15px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
   position: relative;
-  transform: rotate(-8deg);
-  transition: transform var(--transition-slow);
+  transform-style: preserve-3d;
+  transform: rotateX(15deg) rotateY(-25deg) rotateZ(-8deg) translateZ(50px);
+  transition: transform var(--transition-slow), box-shadow var(--transition-slow);
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 .phone-mockup::before {
@@ -485,13 +540,23 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), transparent);
+  background: linear-gradient(
+    145deg, 
+    rgba(255, 255, 255, 0.15) 0%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
   border-radius: 40px;
   pointer-events: none;
+  opacity: 0.8;
 }
 
 .phone-mockup:hover {
-  transform: rotate(-5deg) scale(1.02);
+  transform: rotateX(10deg) rotateY(-20deg) rotateZ(-5deg) translateZ(80px) scale(1.02);
+  box-shadow: 
+    0 30px 60px rgba(0, 0, 0, 0.4),
+    0 12px 25px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 .phone-screen {
@@ -501,7 +566,12 @@ body {
   border-radius: 28px;
   overflow: hidden;
   position: relative;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 
+    inset 0 0 0 1px rgba(0, 0, 0, 0.1),
+    inset 0 2px 8px rgba(0, 0, 0, 0.08),
+    0 1px 3px rgba(0, 0, 0, 0.1);
+  transform-style: preserve-3d;
+  transform: translateZ(10px);
 }
 
 .app-preview {
@@ -513,6 +583,8 @@ body {
     var(--white) 40%
   );
   position: relative;
+  transform-style: preserve-3d;
+  transform: translateZ(5px);
 }
 
 .app-header {
@@ -552,14 +624,22 @@ body {
   display: flex;
   align-items: center;
   gap: var(--spacing-md);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.08),
+    0 1px 3px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(255, 140, 66, 0.08);
   transition: all var(--transition-normal);
+  transform-style: preserve-3d;
+  transform: translateZ(2px);
 }
 
 .meal-card:hover {
-  transform: translateX(4px);
-  box-shadow: var(--shadow-md);
+  transform: translateX(4px) translateZ(5px);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.12),
+    0 2px 6px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .meal-emoji {
@@ -1151,10 +1231,19 @@ body {
     gap: var(--spacing-lg);
   }
 
+  .phone-3d-container {
+    perspective: 800px;
+    padding: var(--spacing-2xl);
+  }
+
   .phone-mockup {
     width: 280px;
     height: 560px;
-    transform: rotate(-3deg);
+    transform: rotateX(10deg) rotateY(-15deg) rotateZ(-3deg) translateZ(30px);
+  }
+  
+  .phone-mockup:hover {
+    transform: rotateX(8deg) rotateY(-12deg) rotateZ(-2deg) translateZ(40px) scale(1.02);
   }
 
   .personas {
@@ -1259,10 +1348,19 @@ body {
     padding: var(--spacing-xl);
   }
 
+  .phone-3d-container {
+    perspective: 600px;
+    padding: var(--spacing-xl);
+  }
+
   .phone-mockup {
     width: 240px;
     height: 480px;
-    transform: rotate(-2deg);
+    transform: rotateX(8deg) rotateY(-10deg) rotateZ(-2deg) translateZ(20px);
+  }
+  
+  .phone-mockup:hover {
+    transform: rotateX(6deg) rotateY(-8deg) rotateZ(-1deg) translateZ(25px) scale(1.01);
   }
 
   .app-preview {

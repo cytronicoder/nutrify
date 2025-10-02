@@ -399,3 +399,51 @@ const additionalStyles = `
 const styleSheet = document.createElement('style');
 styleSheet.textContent = additionalStyles;
 document.head.appendChild(styleSheet);
+
+const phone3DContainer = document.querySelector('.phone-3d-container');
+const phoneMockup = document.querySelector('.phone-mockup');
+
+if (phone3DContainer && phoneMockup) {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!prefersReducedMotion) {
+        let isMouseOverPhone = false;
+
+        phone3DContainer.addEventListener('mouseenter', () => {
+            isMouseOverPhone = true;
+        });
+
+        phone3DContainer.addEventListener('mouseleave', () => {
+            isMouseOverPhone = false;
+            phoneMockup.style.transform = 'rotateX(15deg) rotateY(-25deg) rotateZ(-8deg) translateZ(50px)';
+        });
+
+        phone3DContainer.addEventListener('mousemove', (e) => {
+            if (!isMouseOverPhone) return;
+
+            const rect = phone3DContainer.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+
+            const mouseX = e.clientX - centerX;
+            const mouseY = e.clientY - centerY;
+
+            const rotateY = (mouseX / rect.width) * 20 - 25;
+            const rotateX = -(mouseY / rect.height) * 15 + 15;
+
+            requestAnimationFrame(() => {
+                phoneMockup.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(-8deg) translateZ(60px)`;
+            });
+        });
+    }
+
+    const phoneObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                phoneMockup.style.animation = 'phoneEntrance 1.2s ease-out';
+            }
+        });
+    }, { threshold: 0.5 });
+
+    phoneObserver.observe(phone3DContainer);
+}
