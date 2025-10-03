@@ -168,7 +168,8 @@ body {
   font-weight: var(--font-weight-medium);
   appearance: none;
   box-shadow: var(--shadow-xs);
-  transition: box-shadow var(--transition-fast), transform var(--transition-fast);
+  transition: box-shadow var(--transition-fast),
+    transform var(--transition-fast);
   position: relative;
   background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23ff8c42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpolyline points="6 9 12 15 18 9"/%3E%3C/svg%3E');
   background-repeat: no-repeat;
@@ -361,6 +362,20 @@ body {
   margin-bottom: var(--spacing-xl);
   color: var(--charcoal);
   letter-spacing: -0.02em;
+}
+
+.hero-title--large {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+.hero-title--medium {
+  font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+  line-height: 1.2;
+}
+
+.hero-title--compact {
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  line-height: 1.25;
 }
 
 .highlight {
@@ -581,8 +596,7 @@ body {
   border-radius: 40px;
   padding: 24px;
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35), 0 15px 25px rgba(0, 0, 0, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    0 0 0 1px rgba(255, 255, 255, 0.05);
+    inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.05);
   position: relative;
   transform-style: preserve-3d;
   transform: rotateX(15deg) rotateY(-25deg) rotateZ(-8deg) translateZ(80px);
@@ -614,8 +628,7 @@ body {
   transform: rotateX(10deg) rotateY(-20deg) rotateZ(-5deg) translateZ(120px)
     scale(1.02);
   box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4), 0 20px 35px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15),
-    0 0 0 1px rgba(255, 255, 255, 0.08);
+    inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
 .phone-screen {
@@ -1284,6 +1297,18 @@ body {
     font-size: clamp(2rem, 6vw, 2.75rem);
   }
 
+  .hero-title--large {
+    font-size: clamp(2rem, 6vw, 2.75rem);
+  }
+
+  .hero-title--medium {
+    font-size: clamp(1.8rem, 5.5vw, 2.5rem);
+  }
+
+  .hero-title--compact {
+    font-size: clamp(1.6rem, 5vw, 2.25rem);
+  }
+
   .hero-subtitle {
     font-size: 1.125rem;
     max-width: none;
@@ -1432,6 +1457,18 @@ body {
   .hero-title {
     font-size: clamp(1.75rem, 8vw, 2.25rem);
     margin-bottom: var(--spacing-lg);
+  }
+
+  .hero-title--large {
+    font-size: clamp(1.75rem, 8vw, 2.25rem);
+  }
+
+  .hero-title--medium {
+    font-size: clamp(1.6rem, 7.5vw, 2rem);
+  }
+
+  .hero-title--compact {
+    font-size: clamp(1.45rem, 7vw, 1.85rem);
   }
 
   .hero-subtitle {

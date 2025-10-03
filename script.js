@@ -34,6 +34,28 @@ document.addEventListener('DOMContentLoaded', function () {
                 element.innerHTML = translatedValue;
             }
         });
+        
+        // Adjust hero title font size based on language
+        adjustHeroTitleSize(lang);
+    };
+    
+    const adjustHeroTitleSize = (lang) => {
+        const heroTitle = document.querySelector('.hero-title');
+        if (!heroTitle) return;
+        
+        heroTitle.classList.remove('hero-title--compact', 'hero-title--medium', 'hero-title--large');
+        
+        const titleText = heroTitle.textContent || heroTitle.innerText;
+        const textLength = titleText.length;
+        
+        if (textLength > 150 || ['ta', 'bn', 'hi'].includes(lang)) {
+            heroTitle.classList.add('hero-title--compact');
+        } else if (textLength > 100 || ['id', 'tl'].includes(lang)) {
+            heroTitle.classList.add('hero-title--medium');
+        } else {
+            // English and shorter text - larger size
+            heroTitle.classList.add('hero-title--large');
+        }
     };
 
     const setLanguage = (lang, { persist = true } = {}) => {
