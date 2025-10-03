@@ -6,6 +6,8 @@
     <title data-i18n="pageTitle">Nutrify — Eat well on budget</title>
     <meta
       name="description"
+      data-i18n="metaDescription"
+      data-i18n-attrs="content"
       content="Eat well on budget, in your language and with your dietary rules. Made for migrant and shift workers in Singapore."
     />
     <link rel="icon" type="image/x-icon" href="favicon/favicon.ico" />
@@ -26,11 +28,11 @@
   </head>
   <body>
     <header class="header">
-      <nav class="nav" aria-label="Primary">
+      <nav class="nav" aria-label="Primary" data-i18n="navAriaLabel" data-i18n-attrs="aria-label" data-i18n-skip-inner="true">
         <div class="nav-container">
-          <div class="logo" aria-label="Nutrify">
-            <img src="logo.svg" alt="Nutrify Logo" class="logo-icon">
-            <span class="logo-text">Nutrify</span>
+          <div class="logo" aria-label="Nutrify" data-i18n="logoAriaLabel" data-i18n-attrs="aria-label" data-i18n-skip-inner="true">
+            <img src="logo.svg" alt="Nutrify Logo" class="logo-icon" data-i18n="logoAlt" data-i18n-attrs="alt">
+            <span class="logo-text" data-i18n="brandName">Nutrify</span>
           </div>
           <div class="nav-links">
             <a href="#personas" class="nav-link" data-i18n="navWho">Who it's for</a>
@@ -38,7 +40,14 @@
             <a href="#download" class="nav-link cta-button" data-i18n="navGet">Get the app</a>
           </div>
           <label for="languageSwitcher" class="visually-hidden" data-i18n="languageSwitcherLabel">Select language</label>
-          <select id="languageSwitcher" class="language-switcher" aria-label="Select language">
+          <select
+            id="languageSwitcher"
+            class="language-switcher"
+            aria-label="Select language"
+            data-i18n="languageSwitcherLabel"
+            data-i18n-attrs="aria-label"
+            data-i18n-skip-inner="true"
+          >
             <option value="en" data-i18n="languageOptionEnglish">English</option>
             <option value="id" data-i18n="languageOptionIndonesian">Bahasa Indonesia</option>
             <option value="ta" data-i18n="languageOptionTamil">Tamil</option>
@@ -46,7 +55,13 @@
             <option value="hi" data-i18n="languageOptionHindi">Hindi</option>
             <option value="tl" data-i18n="languageOptionTagalog">Tagalog</option>
           </select>
-          <button class="mobile-menu-toggle" aria-label="Open menu">
+          <button
+            class="mobile-menu-toggle"
+            aria-label="Open menu"
+            data-i18n="mobileMenuToggle"
+            data-i18n-attrs="aria-label"
+            data-i18n-skip-inner="true"
+          >
             <span></span><span></span><span></span>
           </button>
         </div>
@@ -74,17 +89,23 @@
               See how it works
             </button>
           </div>
-          <div class="hero-stats" aria-label="App highlights">
+          <div
+            class="hero-stats"
+            aria-label="App highlights"
+            data-i18n="heroStatsAria"
+            data-i18n-attrs="aria-label"
+            data-i18n-skip-inner="true"
+          >
             <div class="stat">
-              <div class="stat-number">$2-$4</div>
+              <div class="stat-number" data-i18n="statMealCostValue">$2-$4</div>
               <div class="stat-label" data-i18n="statMealCost">Typical meal cost</div>
             </div>
             <div class="stat">
-              <div class="stat-number">5-10 min</div>
+              <div class="stat-number" data-i18n="statQuickRecipesValue">5-10 min</div>
               <div class="stat-label" data-i18n="statQuickRecipes">Quick recipes</div>
             </div>
             <div class="stat">
-              <div class="stat-number">6</div>
+              <div class="stat-number" data-i18n="statLanguagesValue">6</div>
               <div class="stat-label" data-i18n="statLanguages">Languages</div>
             </div>
           </div>
@@ -93,26 +114,27 @@
           <div class="phone-3d-container">
             <div class="phone-mockup">
               <div class="phone-screen">
-              <div class="app-preview">
-                <div class="app-header">
-                  <span class="app-title" data-i18n="appPreviewToday">Today</span>
-                  <span class="budget-display" data-i18n="appPreviewBudget">$18 left</span>
-                </div>
-                <div class="meal-cards">
-                  <div class="meal-card">
-                    <span class="meal-emoji">🍳</span>
-                    <span class="meal-name" data-i18n="appPreviewMealOne">Egg rice</span>
-                    <span class="meal-price">$2.50</span>
+                <div class="app-preview">
+                  <div class="app-header">
+                    <span class="app-title" data-i18n="appPreviewToday">Today</span>
+                    <span class="budget-display" data-i18n="appPreviewBudget">$18 left</span>
                   </div>
-                  <div class="meal-card">
-                    <span class="meal-emoji">🥗</span>
-                    <span class="meal-name" data-i18n="appPreviewMealTwo">Mixed veg</span>
-                    <span class="meal-price">$3.20</span>
-                  </div>
-                  <div class="meal-card">
-                    <span class="meal-emoji">🍛</span>
-                    <span class="meal-name" data-i18n="appPreviewMealThree">Chicken rice</span>
-                    <span class="meal-price">$3.80</span>
+                  <div class="meal-cards">
+                    <div class="meal-card">
+                      <span class="meal-emoji">🍳</span>
+                      <span class="meal-name" data-i18n="appPreviewMealOne">Egg rice</span>
+                      <span class="meal-price" data-i18n="appPreviewMealOnePrice">$2.50</span>
+                    </div>
+                    <div class="meal-card">
+                      <span class="meal-emoji">🥗</span>
+                      <span class="meal-name" data-i18n="appPreviewMealTwo">Mixed veg</span>
+                      <span class="meal-price" data-i18n="appPreviewMealTwoPrice">$3.20</span>
+                    </div>
+                    <div class="meal-card">
+                      <span class="meal-emoji">🍛</span>
+                      <span class="meal-name" data-i18n="appPreviewMealThree">Chicken rice</span>
+                      <span class="meal-price" data-i18n="appPreviewMealThreePrice">$3.80</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -273,6 +295,9 @@
               href="#"
               class="download-button android"
               aria-label="Download Nutrify for Android"
+              data-i18n="downloadAndroidAria"
+              data-i18n-attrs="aria-label"
+              data-i18n-skip-inner="true"
             >
               <div class="download-icon">🤖</div>
               <div class="download-text">
@@ -284,6 +309,9 @@
               href="#"
               class="download-button ios"
               aria-label="Nutrify for iOS is coming soon"
+              data-i18n="downloadIosAria"
+              data-i18n-attrs="aria-label"
+              data-i18n-skip-inner="true"
             >
               <div class="download-icon">📱</div>
               <div class="download-text">
@@ -303,9 +331,9 @@
       <div class="container">
         <div class="footer-content">
           <div class="footer-brand">
-            <div class="logo" aria-label="Nutrify">
-              <img src="logo.svg" alt="Nutrify Logo" class="logo-icon">
-              <span class="logo-text">Nutrify</span>
+            <div class="logo" aria-label="Nutrify" data-i18n="footerLogoAria" data-i18n-attrs="aria-label" data-i18n-skip-inner="true">
+              <img src="logo.svg" alt="Nutrify Logo" class="logo-icon" data-i18n="logoAlt" data-i18n-attrs="alt">
+              <span class="logo-text" data-i18n="brandName">Nutrify</span>
             </div>
             <p class="footer-tagline" data-i18n="footerTagline">Good food, within your budget</p>
           </div>

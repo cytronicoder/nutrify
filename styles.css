@@ -369,13 +369,13 @@ body {
 }
 
 .hero-title--medium {
-  font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
   line-height: 1.2;
 }
 
 .hero-title--compact {
-  font-size: clamp(1.9rem, 4vw, 3rem);
-  line-height: 1.25;
+  font-size: clamp(1rem, 3vw, 2rem);
+  line-height: 1.3;
 }
 
 .highlight {
@@ -1306,7 +1306,8 @@ body {
   }
 
   .hero-title--compact {
-    font-size: clamp(1.6rem, 5vw, 2.25rem);
+    font-size: clamp(1.4rem, 4.5vw, 2rem);
+    line-height: 1.3;
   }
 
   .hero-subtitle {
@@ -1468,7 +1469,8 @@ body {
   }
 
   .hero-title--compact {
-    font-size: clamp(1.45rem, 7vw, 1.85rem);
+    font-size: clamp(1.25rem, 6.5vw, 1.65rem);
+    line-height: 1.35;
   }
 
   .hero-subtitle {

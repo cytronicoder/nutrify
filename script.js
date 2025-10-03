@@ -23,6 +23,8 @@ document.addEventListener('DOMContentLoaded', function () {
         return fallbackLanguage;
     };
 
+    const voidElements = new Set(['AREA', 'BASE', 'BR', 'COL', 'EMBED', 'HR', 'IMG', 'INPUT', 'LINK', 'META', 'PARAM', 'SOURCE', 'TRACK', 'WBR']);
+
     const applyTranslations = (lang) => {
         const elements = document.querySelectorAll('[data-i18n]');
         elements.forEach((element) => {
@@ -30,31 +32,41 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!key) return;
 
             const translatedValue = translations[lang]?.[key] ?? translations[fallbackLanguage]?.[key];
-            if (translatedValue) {
+            if (translatedValue == null) {
+                return;
+            }
+
+            const attrList = element.dataset.i18nAttrs;
+            if (attrList) {
+                attrList.split(',').forEach((attr) => {
+                    const attributeName = attr.trim();
+                    if (attributeName) {
+                        element.setAttribute(attributeName, translatedValue);
+                    }
+                });
+            }
+
+            const skipInner = element.dataset.i18nSkipInner === 'true';
+            if (!skipInner && !voidElements.has(element.tagName)) {
                 element.innerHTML = translatedValue;
             }
         });
-        
-        // Adjust hero title font size based on language
-        adjustHeroTitleSize(lang);
     };
-    
-    const adjustHeroTitleSize = (lang) => {
+
+    const adjustHeroTitleSize = () => {
         const heroTitle = document.querySelector('.hero-title');
         if (!heroTitle) return;
-        
-        heroTitle.classList.remove('hero-title--compact', 'hero-title--medium', 'hero-title--large');
-        
-        const titleText = heroTitle.textContent || heroTitle.innerText;
-        const textLength = titleText.length;
-        
-        if (textLength > 150 || ['ta', 'bn', 'hi'].includes(lang)) {
-            heroTitle.classList.add('hero-title--compact');
-        } else if (textLength > 100 || ['id', 'tl'].includes(lang)) {
+
+        heroTitle.classList.remove('hero-title--large', 'hero-title--medium', 'hero-title--compact');
+
+        const textLength = heroTitle.textContent.trim().length;
+
+        if (textLength < 50) {
+            heroTitle.classList.add('hero-title--large');
+        } else if (textLength < 75) {
             heroTitle.classList.add('hero-title--medium');
         } else {
-            // English and shorter text - larger size
-            heroTitle.classList.add('hero-title--large');
+            heroTitle.classList.add('hero-title--compact');
         }
     };
 
@@ -62,17 +74,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const resolvedLang = resolveLanguage(lang);
         htmlElement.setAttribute('lang', resolvedLang);
         applyTranslations(resolvedLang);
+        adjustHeroTitleSize();
 
         if (languageSwitcher && languageSwitcher.value !== resolvedLang) {
             languageSwitcher.value = resolvedLang;
-        }
-
-        if (languageSwitcher) {
-            const labelTranslation = translations[resolvedLang]?.languageSwitcherLabel
-                ?? translations[fallbackLanguage]?.languageSwitcherLabel;
-            if (labelTranslation) {
-                languageSwitcher.setAttribute('aria-label', labelTranslation);
-            }
         }
 
         if (persist) {
