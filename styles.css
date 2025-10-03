@@ -156,6 +156,49 @@ body {
   gap: var(--spacing-xl);
 }
 
+.language-switcher {
+  margin-left: var(--spacing-lg);
+  padding: 0.4rem 2.25rem 0.4rem 0.75rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--dark-gray);
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-medium);
+  appearance: none;
+  box-shadow: var(--shadow-xs);
+  transition: box-shadow var(--transition-fast), transform var(--transition-fast);
+  position: relative;
+  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23ff8c42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpolyline points="6 9 12 15 18 9"/%3E%3C/svg%3E');
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 0.85rem;
+}
+
+.language-switcher:hover,
+.language-switcher:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 140, 66, 0.2);
+  transform: translateY(-1px);
+}
+
+.language-switcher option {
+  color: var(--dark-gray);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .nav-link {
   text-decoration: none;
   color: var(--dark-gray);
@@ -1174,6 +1217,10 @@ body {
     padding: 0 var(--spacing-xl);
   }
 
+  .language-switcher {
+    margin-left: var(--spacing-md);
+  }
+
   .hero-container {
     gap: var(--spacing-4xl);
   }
@@ -1205,6 +1252,12 @@ body {
 
   .mobile-menu-toggle {
     display: flex;
+  }
+
+  .language-switcher {
+    margin-left: var(--spacing-sm);
+    padding: 0.35rem 1.5rem 0.35rem 0.75rem;
+    font-size: 0.85rem;
   }
 
   .logo-icon {
@@ -1355,6 +1408,11 @@ body {
 
   .nav-container {
     padding: var(--spacing-md);
+  }
+
+  .language-switcher {
+    margin-left: var(--spacing-xs);
+    font-size: 0.8rem;
   }
 
   .logo-icon {
