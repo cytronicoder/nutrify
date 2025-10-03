@@ -1,4 +1,108 @@
 document.addEventListener('DOMContentLoaded', function () {
+    const translations = window.translations || {};
+    const fallbackLanguage = 'en';
+    const htmlElement = document.documentElement;
+    const languageSwitcher = document.getElementById('languageSwitcher');
+
+    const resolveLanguage = (lang) => {
+        if (lang && translations[lang]) {
+            return lang;
+        }
+        return fallbackLanguage;
+    };
+
+    const getBrowserLanguage = () => {
+        const navigatorLanguages = Array.isArray(navigator.languages) ? navigator.languages : [navigator.language];
+        for (const lang of navigatorLanguages) {
+            if (!lang) continue;
+            const normalized = lang.toLowerCase().split('-')[0];
+            if (translations[normalized]) {
+                return normalized;
+            }
+        }
+        return fallbackLanguage;
+    };
+
+    const applyTranslations = (lang) => {
+        const elements = document.querySelectorAll('[data-i18n]');
+        elements.forEach((element) => {
+            const key = element.dataset.i18n;
+            if (!key) return;
+
+            const translatedValue = translations[lang]?.[key] ?? translations[fallbackLanguage]?.[key];
+            if (translatedValue) {
+                element.innerHTML = translatedValue;
+            }
+        });
+        
+        // Adjust hero title font size based on language
+        adjustHeroTitleSize(lang);
+    };
+    
+    const adjustHeroTitleSize = (lang) => {
+        const heroTitle = document.querySelector('.hero-title');
+        if (!heroTitle) return;
+        
+        heroTitle.classList.remove('hero-title--compact', 'hero-title--medium', 'hero-title--large');
+        
+        const titleText = heroTitle.textContent || heroTitle.innerText;
+        const textLength = titleText.length;
+        
+        if (textLength > 150 || ['ta', 'bn', 'hi'].includes(lang)) {
+            heroTitle.classList.add('hero-title--compact');
+        } else if (textLength > 100 || ['id', 'tl'].includes(lang)) {
+            heroTitle.classList.add('hero-title--medium');
+        } else {
+            // English and shorter text - larger size
+            heroTitle.classList.add('hero-title--large');
+        }
+    };
+
+    const setLanguage = (lang, { persist = true } = {}) => {
+        const resolvedLang = resolveLanguage(lang);
+        htmlElement.setAttribute('lang', resolvedLang);
+        applyTranslations(resolvedLang);
+
+        if (languageSwitcher && languageSwitcher.value !== resolvedLang) {
+            languageSwitcher.value = resolvedLang;
+        }
+
+        if (languageSwitcher) {
+            const labelTranslation = translations[resolvedLang]?.languageSwitcherLabel
+                ?? translations[fallbackLanguage]?.languageSwitcherLabel;
+            if (labelTranslation) {
+                languageSwitcher.setAttribute('aria-label', labelTranslation);
+            }
+        }
+
+        if (persist) {
+            try {
+                localStorage.setItem('preferredLanguage', resolvedLang);
+            } catch (error) {
+                console.warn('Unable to store preferred language', error);
+            }
+        }
+    };
+
+    const storedLanguage = (() => {
+        try {
+            return localStorage.getItem('preferredLanguage');
+        } catch (error) {
+            return null;
+        }
+    })();
+
+    const initialLanguage = storedLanguage && translations[storedLanguage]
+        ? storedLanguage
+        : getBrowserLanguage();
+    setLanguage(initialLanguage, { persist: false });
+
+    if (languageSwitcher) {
+        languageSwitcher.addEventListener('change', (event) => {
+            setLanguage(event.target.value);
+        });
+    }
+
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const navLinks = document.querySelector('.nav-links');
 

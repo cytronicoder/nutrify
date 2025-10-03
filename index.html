@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nutrify — Eat well on budget</title>
+    <title data-i18n="pageTitle">Nutrify — Eat well on budget</title>
     <meta
       name="description"
       content="Eat well on budget, in your language and with your dietary rules. Made for migrant and shift workers in Singapore."
@@ -33,10 +33,19 @@
             <span class="logo-text">Nutrify</span>
           </div>
           <div class="nav-links">
-            <a href="#personas" class="nav-link">Who it's for</a>
-            <a href="#features" class="nav-link">How it works</a>
-            <a href="#download" class="nav-link cta-button">Get the app</a>
+            <a href="#personas" class="nav-link" data-i18n="navWho">Who it's for</a>
+            <a href="#features" class="nav-link" data-i18n="navHow">How it works</a>
+            <a href="#download" class="nav-link cta-button" data-i18n="navGet">Get the app</a>
           </div>
+          <label for="languageSwitcher" class="visually-hidden" data-i18n="languageSwitcherLabel">Select language</label>
+          <select id="languageSwitcher" class="language-switcher" aria-label="Select language">
+            <option value="en" data-i18n="languageOptionEnglish">English</option>
+            <option value="id" data-i18n="languageOptionIndonesian">Bahasa Indonesia</option>
+            <option value="ta" data-i18n="languageOptionTamil">Tamil</option>
+            <option value="bn" data-i18n="languageOptionBengali">Bengali</option>
+            <option value="hi" data-i18n="languageOptionHindi">Hindi</option>
+            <option value="tl" data-i18n="languageOptionTagalog">Tagalog</option>
+          </select>
           <button class="mobile-menu-toggle" aria-label="Open menu">
             <span></span><span></span><span></span>
           </button>
@@ -47,36 +56,36 @@
     <section class="hero">
       <div class="hero-container">
         <div class="hero-content">
-          <h1 class="hero-title">
+          <h1 class="hero-title" data-i18n="heroTitle">
             Eat well <span class="highlight">on budget</span>.<br />
             For your language and<br />
             <span class="highlight">custom dietary rules</span>.
           </h1>
-          <p class="hero-subtitle">
+          <p class="hero-subtitle" data-i18n="heroSubtitle">
             Simple meal ideas that fit your pay, your shifts, and your culture.
             Made for migrant and shift workers in Singapore—Halal, vegetarian,
             and more.
           </p>
           <div class="hero-cta">
-            <button class="cta-primary" aria-label="Get the Nutrify app">
+            <button class="cta-primary" aria-label="Get the Nutrify app" data-i18n="heroPrimaryCta">
               Get the app
             </button>
-            <button class="cta-secondary" aria-label="See how Nutrify works">
+            <button class="cta-secondary" aria-label="See how Nutrify works" data-i18n="heroSecondaryCta">
               See how it works
             </button>
           </div>
           <div class="hero-stats" aria-label="App highlights">
             <div class="stat">
               <div class="stat-number">$2-$4</div>
-              <div class="stat-label">Typical meal cost</div>
+              <div class="stat-label" data-i18n="statMealCost">Typical meal cost</div>
             </div>
             <div class="stat">
               <div class="stat-number">5-10 min</div>
-              <div class="stat-label">Quick recipes</div>
+              <div class="stat-label" data-i18n="statQuickRecipes">Quick recipes</div>
             </div>
             <div class="stat">
               <div class="stat-number">6</div>
-              <div class="stat-label">Languages</div>
+              <div class="stat-label" data-i18n="statLanguages">Languages</div>
             </div>
           </div>
         </div>
@@ -86,23 +95,23 @@
               <div class="phone-screen">
               <div class="app-preview">
                 <div class="app-header">
-                  <span class="app-title">Today</span>
-                  <span class="budget-display">$18 left</span>
+                  <span class="app-title" data-i18n="appPreviewToday">Today</span>
+                  <span class="budget-display" data-i18n="appPreviewBudget">$18 left</span>
                 </div>
                 <div class="meal-cards">
                   <div class="meal-card">
                     <span class="meal-emoji">🍳</span>
-                    <span class="meal-name">Egg rice</span>
+                    <span class="meal-name" data-i18n="appPreviewMealOne">Egg rice</span>
                     <span class="meal-price">$2.50</span>
                   </div>
                   <div class="meal-card">
                     <span class="meal-emoji">🥗</span>
-                    <span class="meal-name">Mixed veg</span>
+                    <span class="meal-name" data-i18n="appPreviewMealTwo">Mixed veg</span>
                     <span class="meal-price">$3.20</span>
                   </div>
                   <div class="meal-card">
                     <span class="meal-emoji">🍛</span>
-                    <span class="meal-name">Chicken rice</span>
+                    <span class="meal-name" data-i18n="appPreviewMealThree">Chicken rice</span>
                     <span class="meal-price">$3.80</span>
                   </div>
                 </div>
@@ -116,62 +125,62 @@
     <section id="personas" class="personas">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">Who it's for</h2>
-          <p class="section-subtitle">Built with workers, in many languages</p>
+          <h2 class="section-title" data-i18n="personasTitle">Who it's for</h2>
+          <p class="section-subtitle" data-i18n="personasSubtitle">Built with workers, in many languages</p>
         </div>
         <div class="personas-grid">
           <div class="persona-card">
             <div class="persona-icon">👷‍♂️</div>
-            <h3 class="persona-title">Dormitory workers</h3>
-            <p class="persona-description">
+            <h3 class="persona-title" data-i18n="personaDormitoryTitle">Dormitory workers</h3>
+            <p class="persona-description" data-i18n="personaDormitoryDescription">
               Construction and manufacturing
             </p>
             <ul class="persona-constraints">
-              <li>Long shifts, short breaks</li>
-              <li>Budget around $3-$6 per meal</li>
-              <li>Mostly eat at worksite canteens</li>
-              <li>Halal or vegetarian options needed</li>
-              <li>Limited or expensive mobile data</li>
+              <li data-i18n="personaDormitoryConstraint1">Long shifts, short breaks</li>
+              <li data-i18n="personaDormitoryConstraint2">Budget around $3-$6 per meal</li>
+              <li data-i18n="personaDormitoryConstraint3">Mostly eat at worksite canteens</li>
+              <li data-i18n="personaDormitoryConstraint4">Halal or vegetarian options needed</li>
+              <li data-i18n="personaDormitoryConstraint5">Limited or expensive mobile data</li>
             </ul>
             <div class="persona-solution">
-              <strong>How we help:</strong> Offline canteen picks and simple
-              budget tracking
+              <strong data-i18n="personaDormitorySolutionTitle">How we help:</strong>
+              <span data-i18n="personaDormitorySolutionText">Offline canteen picks and simple budget tracking</span>
             </div>
           </div>
 
           <div class="persona-card">
             <div class="persona-icon">👩‍🍳</div>
-            <h3 class="persona-title">Domestic workers</h3>
-            <p class="persona-description">Caregivers and household staff</p>
+            <h3 class="persona-title" data-i18n="personaDomesticTitle">Domestic workers</h3>
+            <p class="persona-description" data-i18n="personaDomesticDescription">Caregivers and household staff</p>
             <ul class="persona-constraints">
-              <li>Little control over menu</li>
-              <li>Must consider employer's tastes</li>
-              <li>Keep own dietary rules</li>
-              <li>Need affordable, healthy recipes</li>
-              <li>Very limited time to cook</li>
+              <li data-i18n="personaDomesticConstraint1">Little control over menu</li>
+              <li data-i18n="personaDomesticConstraint2">Must consider employer's tastes</li>
+              <li data-i18n="personaDomesticConstraint3">Keep own dietary rules</li>
+              <li data-i18n="personaDomesticConstraint4">Need affordable, healthy recipes</li>
+              <li data-i18n="personaDomesticConstraint5">Very limited time to cook</li>
             </ul>
             <div class="persona-solution">
-              <strong>How we help:</strong> 5-10 minute, family-friendly recipes
-              with low cost per serve
+              <strong data-i18n="personaDomesticSolutionTitle">How we help:</strong>
+              <span data-i18n="personaDomesticSolutionText">5-10 minute, family-friendly recipes with low cost per serve</span>
             </div>
           </div>
 
           <div class="persona-card">
             <div class="persona-icon">🌙</div>
-            <h3 class="persona-title">Shift & night workers</h3>
-            <p class="persona-description">
+            <h3 class="persona-title" data-i18n="personaShiftTitle">Shift & night workers</h3>
+            <p class="persona-description" data-i18n="personaShiftDescription">
               Security, cleaning, logistics, delivery
             </p>
             <ul class="persona-constraints">
-              <li>Irregular hours</li>
-              <li>Eat at hawker centres/mini-marts</li>
-              <li>Need fast, healthy choices</li>
-              <li>No time to plan ahead</li>
-              <li>Must stay within budget</li>
+              <li data-i18n="personaShiftConstraint1">Irregular hours</li>
+              <li data-i18n="personaShiftConstraint2">Eat at hawker centres/mini-marts</li>
+              <li data-i18n="personaShiftConstraint3">Need fast, healthy choices</li>
+              <li data-i18n="personaShiftConstraint4">No time to plan ahead</li>
+              <li data-i18n="personaShiftConstraint5">Must stay within budget</li>
             </ul>
             <div class="persona-solution">
-              <strong>How we help:</strong> “Best choice” cards and instant
-              suggestions for hawker stalls
+              <strong data-i18n="personaShiftSolutionTitle">How we help:</strong>
+              <span data-i18n="personaShiftSolutionText">“Best choice” cards and instant suggestions for hawker stalls</span>
             </div>
           </div>
         </div>
@@ -181,72 +190,72 @@
     <section id="features" class="features">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">How Nutrify works</h2>
-          <p class="section-subtitle">Eat better without spending more</p>
+          <h2 class="section-title" data-i18n="featuresTitle">How Nutrify works</h2>
+          <p class="section-subtitle" data-i18n="featuresSubtitle">Eat better without spending more</p>
         </div>
         <div class="features-grid">
           <div class="feature-card core">
             <div class="feature-icon">📊</div>
-            <h3 class="feature-title">Weekly meal planner</h3>
-            <p class="feature-description">
+            <h3 class="feature-title" data-i18n="featurePlannerTitle">Weekly meal planner</h3>
+            <p class="feature-description" data-i18n="featurePlannerDescription">
               Set your weekly budget and dietary rules. Get a 7-day plan with
               price bands ($2-$4/meal) and 1-tap swaps for variety.
             </p>
             <div class="feature-tags">
-              <span class="tag">Halal</span>
-              <span class="tag">Vegan</span>
-              <span class="tag">...</span>
+              <span class="tag" data-i18n="tagHalal">Halal</span>
+              <span class="tag" data-i18n="tagVegan">Vegan</span>
+              <span class="tag" data-i18n="tagMore">...</span>
             </div>
           </div>
 
           <div class="feature-card core">
             <div class="feature-icon">🏪</div>
-            <h3 class="feature-title">Hawker & canteen guide</h3>
-            <p class="feature-description">
+            <h3 class="feature-title" data-i18n="featureGuideTitle">Hawker & canteen guide</h3>
+            <p class="feature-description" data-i18n="featureGuideDescription">
               Quick, offline tips for common stalls. Find better options and
               simple requests like “less oil” or “extra veg”.
             </p>
-            <div class="feature-highlight">Works without internet</div>
+            <div class="feature-highlight" data-i18n="featureGuideHighlight">Works without internet</div>
           </div>
 
           <div class="feature-card core">
             <div class="feature-icon">⚡</div>
-            <h3 class="feature-title">Quick recipe cards</h3>
-            <p class="feature-description">
+            <h3 class="feature-title" data-i18n="featureRecipesTitle">Quick recipe cards</h3>
+            <p class="feature-description" data-i18n="featureRecipesDescription">
               4-6 ingredients, 3 steps, 5-10 minutes. Use a rice cooker,
               microwave, kettle, or cold-prep when there's no kitchen.
             </p>
-            <div class="feature-highlight">Super quick & easy</div>
+            <div class="feature-highlight" data-i18n="featureRecipesHighlight">Super quick & easy</div>
           </div>
 
           <div class="feature-card core">
             <div class="feature-icon">🎯</div>
-            <h3 class="feature-title">Daily nutrition meter</h3>
-            <p class="feature-description">
+            <h3 class="feature-title" data-i18n="featureMeterTitle">Daily nutrition meter</h3>
+            <p class="feature-description" data-i18n="featureMeterDescription">
               Simple dials for carbs, protein, veg, and water. Get small,
               low-cost add-ons like “add a boiled egg (+$0.50)”.
             </p>
-            <div class="feature-highlight">Clear & visual</div>
+            <div class="feature-highlight" data-i18n="featureMeterHighlight">Clear & visual</div>
           </div>
 
           <div class="feature-card core">
             <div class="feature-icon">🌍</div>
-            <h3 class="feature-title">Use in your language</h3>
-            <p class="feature-description">
+            <h3 class="feature-title" data-i18n="featureLanguageTitle">Use in your language</h3>
+            <p class="feature-description" data-i18n="featureLanguageDescription">
               English, Bahasa Indonesia, Tagalog, Tamil, Hindi, or Bengali.
               Clear icons and optional voice prompts.
             </p>
-            <div class="feature-highlight">Easy to use</div>
+            <div class="feature-highlight" data-i18n="featureLanguageHighlight">Easy to use</div>
           </div>
 
           <div class="feature-card core">
             <div class="feature-icon">📱</div>
-            <h3 class="feature-title">Works offline, small size</h3>
-            <p class="feature-description">
+            <h3 class="feature-title" data-i18n="featureOfflineTitle">Works offline, small size</h3>
+            <p class="feature-description" data-i18n="featureOfflineDescription">
               Your plans and recipes are saved on your phone. Small app (under
               20MB) that works on low-cost Android phones.
             </p>
-            <div class="feature-highlight">Always works</div>
+            <div class="feature-highlight" data-i18n="featureOfflineHighlight">Always works</div>
           </div>
         </div>
       </div>
@@ -255,8 +264,8 @@
     <section id="download" class="download">
       <div class="container">
         <div class="download-content">
-          <h2 class="section-title">Start eating better today</h2>
-          <p class="section-subtitle">
+          <h2 class="section-title" data-i18n="downloadTitle">Start eating better today</h2>
+          <p class="section-subtitle" data-i18n="downloadSubtitle">
             Healthy, budget-friendly meals for busy workers in Singapore
           </p>
           <div class="download-buttons">
@@ -267,8 +276,8 @@
             >
               <div class="download-icon">🤖</div>
               <div class="download-text">
-                <div class="download-label">Download for</div>
-                <div class="download-platform">Android</div>
+                <div class="download-label" data-i18n="downloadAndroidLabel">Download for</div>
+                <div class="download-platform" data-i18n="downloadAndroidPlatform">Android</div>
               </div>
             </a>
             <a
@@ -278,12 +287,12 @@
             >
               <div class="download-icon">📱</div>
               <div class="download-text">
-                <div class="download-label">Coming to</div>
-                <div class="download-platform">iOS</div>
+                <div class="download-label" data-i18n="downloadIosLabel">Coming to</div>
+                <div class="download-platform" data-i18n="downloadIosPlatform">iOS</div>
               </div>
             </a>
           </div>
-          <div class="download-note">
+          <div class="download-note" data-i18n="downloadNote">
             Free to download • Works offline • Small file size
           </div>
         </div>
@@ -298,34 +307,35 @@
               <img src="logo.svg" alt="Nutrify Logo" class="logo-icon">
               <span class="logo-text">Nutrify</span>
             </div>
-            <p class="footer-tagline">Good food, within your budget</p>
+            <p class="footer-tagline" data-i18n="footerTagline">Good food, within your budget</p>
           </div>
           <div class="footer-links">
             <div class="footer-section">
-              <h4>App</h4>
-              <a href="#features">How it works</a>
-              <a href="#personas">Who it's for</a>
-              <a href="#download">Get the app</a>
+              <h4 data-i18n="footerAppHeading">App</h4>
+              <a href="#features" data-i18n="footerAppHow">How it works</a>
+              <a href="#personas" data-i18n="footerAppWho">Who it's for</a>
+              <a href="#download" data-i18n="footerAppGet">Get the app</a>
             </div>
             <div class="footer-section">
-              <h4>Support</h4>
-              <a href="#">Help centre</a>
-              <a href="#">Contact us</a>
-              <a href="#">Community</a>
+              <h4 data-i18n="footerSupportHeading">Support</h4>
+              <a href="#" data-i18n="footerSupportHelp">Help centre</a>
+              <a href="#" data-i18n="footerSupportContact">Contact us</a>
+              <a href="#" data-i18n="footerSupportCommunity">Community</a>
             </div>
           </div>
         </div>
         <div class="footer-bottom">
-          <p>
+          <p data-i18n="footerCopyright">
             &copy; 2025 Nutrify. Made for working people, by students.
           </p>
-          <p class="demo-note">
+          <p class="demo-note" data-i18n="footerDemoNote">
             This is a demo website for a project idea for my school's field study project. It is not intended for production use.
           </p>
         </div>
       </div>
     </footer>
 
+    <script src="translations.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
