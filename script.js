@@ -53,10 +53,28 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     };
 
+    const adjustHeroTitleSize = () => {
+        const heroTitle = document.querySelector('.hero-title');
+        if (!heroTitle) return;
+
+        heroTitle.classList.remove('hero-title--large', 'hero-title--medium', 'hero-title--compact');
+
+        const textLength = heroTitle.textContent.trim().length;
+
+        if (textLength < 50) {
+            heroTitle.classList.add('hero-title--large');
+        } else if (textLength < 75) {
+            heroTitle.classList.add('hero-title--medium');
+        } else {
+            heroTitle.classList.add('hero-title--compact');
+        }
+    };
+
     const setLanguage = (lang, { persist = true } = {}) => {
         const resolvedLang = resolveLanguage(lang);
         htmlElement.setAttribute('lang', resolvedLang);
         applyTranslations(resolvedLang);
+        adjustHeroTitleSize();
 
         if (languageSwitcher && languageSwitcher.value !== resolvedLang) {
             languageSwitcher.value = resolvedLang;
