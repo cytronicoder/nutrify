@@ -1,4 +1,4 @@
-<b><img src="logo.svg" alt="Nutrify Logo" width="30" height="30"><span style="font-size: 2em">utrify</span></b>
+# <img src="logo.svg" alt="Nutrify Logo" width="30" height="30">utrify
 
 Many migrant and shift workers in Singapore face challenges in maintaining a balanced diet due to:
 
